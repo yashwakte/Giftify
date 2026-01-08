@@ -31,5 +31,28 @@
         </svg>
       </button>
     </div>
+    <button class="hamburger" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </div>
+</div>
+<div class="nav-mobile" *ngIf="mobileMenuOpen">
+  <a href="#" class="nav-item">Home</a>
+  <a href="#" class="nav-item">Gifting</a>
+  <a href="#" class="nav-item">Cards</a>
+  <a href="#" class="nav-item">About Us</a>
 </div>

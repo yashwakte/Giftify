@@ -12,8 +12,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vh;
+  width: 100%;
   max-width: 700px;
+  padding: 0 1rem;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
 }
@@ -121,4 +122,18 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 3px 6px rgba(255, 75, 43, 0.4);
+}
+
+@media (max-width: 720px) {
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .first-p {
+    font-size: 1rem;
+  }
+
+  .second-p {
+    font-size: 1.1rem;
+  }
 }
