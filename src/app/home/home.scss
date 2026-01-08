@@ -87,7 +87,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-//   justify-content: center;
+  //   justify-content: center;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -117,11 +117,11 @@
 }
 
 .brand-highlight {
-  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  background: linear-gradient(90deg, #1b23b9, #585892);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 3px 6px rgba(255, 75, 43, 0.4);
+  text-shadow: 0 2px 4px rgba(86, 76, 132, 0.4);
 }
 
 @media (max-width: 720px) {

@@ -14,7 +14,16 @@ export class Home implements OnInit {
   showSecondP = false;
   selectedCategory: string | null = null;
 
-  categories = ['Family', 'Friends', 'Colleagues', 'Clients','Siblings', 'Kids', 'Pets'];
+  categories = [
+    'Family',
+    'Friends',
+    'partner',
+    'Colleagues',
+    'Clients',
+    'Siblings',
+    'Kids',
+    'Pets',
+  ];
 
   ngOnInit() {
     // Swap paragraphs after 2 seconds
