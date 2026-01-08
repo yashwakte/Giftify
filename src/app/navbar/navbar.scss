@@ -51,6 +51,12 @@
   gap: 10px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+.logo-mark-wrapper {
+  perspective: 800px;
+}
+
 .logo-mark {
   width: 42px;
   height: 42px;
@@ -58,12 +64,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #111, #444);
-  color: #fff;
+  background: transparent;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
-  border-radius: 6px;
-  font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
-  letter-spacing: 0.02em;
+  font-size: 1.8rem;
+  background: linear-gradient(180deg, #3a7bd5, #e0e0e0, #3a7bd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transform: translateZ(20px);
+  background-size: 100% 300%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 
 .brand {

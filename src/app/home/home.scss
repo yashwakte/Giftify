@@ -117,11 +117,25 @@
 }
 
 .brand-highlight {
-  background: linear-gradient(90deg, #1b23b9, #585892);
+  background: linear-gradient(45deg, #81aae7, #538ce7, #89b1ee);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 2px 4px rgba(86, 76, 132, 0.4);
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-size: 200% 200%;
+  animation: gradient-animation-bh 4s ease infinite;
+}
+
+@keyframes gradient-animation-bh {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media (max-width: 720px) {

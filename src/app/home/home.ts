@@ -15,14 +15,14 @@ export class Home implements OnInit {
   selectedCategory: string | null = null;
 
   categories = [
+    'Clients',
+    'Colleagues',
     'Family',
     'Friends',
-    'partner',
-    'Colleagues',
-    'Clients',
-    'Siblings',
     'Kids',
+    'Partners',
     'Pets',
+    'Siblings',
   ];
 
   ngOnInit() {
