@@ -1,0 +1,58 @@
+<div class="category-page">
+  <div class="page-header">
+    <h1 class="page-title">Family</h1>
+    <p class="page-description">Find the perfect gift for your family members</p>
+  </div>
+
+  <!-- Category Selection -->
+  <div *ngIf="!selectedSubcategory" class="selection-section">
+    <h2 class="section-title">Select a Family Member</h2>
+    <div class="categories-grid">
+      <button
+        *ngFor="let category of availableCategories"
+        (click)="selectSubcategory(category)"
+        class="category-button"
+      >
+        {{ category }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Filters and Gifts Display -->
+  <div *ngIf="selectedSubcategory" class="gifts-section">
+    <button (click)="goBack()" class="back-button">← Back to Categories</button>
+
+    <h2 class="section-title">Gifts for {{ selectedSubcategory }}</h2>
+
+    <div class="controls-section">
+      <div class="filter-sort-container">
+        <div class="control-group">
+          <label for="sort-select">Sort by:</label>
+          <select
+            id="sort-select"
+            [(ngModel)]="sortBy"
+            (change)="onSortChange()"
+            class="select-control"
+          >
+            <option value="name">Name (A-Z)</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="gifts-grid">
+      <app-gift-card
+        *ngFor="let gift of displayedGifts"
+        [gift]="gift"
+        (addToCart)="addToCart($event)"
+        (buyNow)="buyNow($event)"
+      ></app-gift-card>
+    </div>
+
+    <div *ngIf="displayedGifts.length === 0" class="empty-state">
+      <p>No gifts found for this category.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="gift-card">
+  <div class="card-image-wrapper">
+    <img [src]="gift.image" [alt]="gift.name" class="card-image" />
+    <div class="price-badge">${{ gift.price.toFixed(2) }}</div>
+  </div>
+
+  <div class="card-content">
+    <h3 class="card-title">{{ gift.name }}</h3>
+    <p class="card-description">{{ gift.description }}</p>
+
+    <div class="card-footer">
+      <div class="button-group">
+        <button class="btn btn-add-cart" (click)="onAddToCart()">
+          <span class="icon">🛒</span> Add to Cart
+        </button>
+        <button class="btn btn-buy-now" (click)="onBuyNow()">
+          <span class="icon">💳</span> Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +15,9 @@ export class Home implements OnInit {
   showSecondP = false;
   selectedCategory: string | null = null;
 
-  categories = [
-    'Clients',
-    'Colleagues',
-    'Family',
-    'Friends',
-    'Kids',
-    'Partners',
-    'Pets',
-    'Siblings',
-  ];
+  categories = ['Clients', 'Colleagues', 'Family', 'Friends', 'Kids', 'Partners', 'Pets'];
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     // Swap paragraphs after 2 seconds
@@ -34,6 +28,9 @@ export class Home implements OnInit {
   }
 
   selectCategory(category: string) {
-    this.selectedCategory = this.selectedCategory === category ? null : category;
+    this.selectedCategory = category;
+    // Navigate to category route
+    const route = category.toLowerCase();
+    this.router.navigate([`/categories/${route}`]);
   }
 }

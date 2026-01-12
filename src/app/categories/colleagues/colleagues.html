@@ -1,0 +1,85 @@
+<div class="category-page">
+  <div class="page-header">
+    <h1 class="page-title">Colleagues</h1>
+    <p class="page-description">Find the perfect gift for your colleagues</p>
+  </div>
+
+  <!-- Role Selection -->
+  <div *ngIf="!selectedRole" class="selection-section">
+    <h2 class="section-title">Select a Role</h2>
+    <div class="roles-grid">
+      <button *ngFor="let role of availableRoles" (click)="selectRole(role)" class="role-button">
+        {{ role }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Filters and Gifts Display -->
+  <div *ngIf="selectedRole" class="gifts-section">
+    <button (click)="goBack()" class="back-button">← Back to Roles</button>
+
+    <h2 class="section-title">{{ selectedRole }} - Gifts</h2>
+
+    <div class="controls-section">
+      <div class="filter-sort-container">
+        <div class="control-group">
+          <label for="age-select">Age Group:</label>
+          <select
+            id="age-select"
+            [(ngModel)]="selectedAgeGroup"
+            (change)="onFilterChange()"
+            class="select-control"
+          >
+            <option value="">All Ages</option>
+            <option value="20-30">20-30</option>
+            <option value="22-35">22-35</option>
+            <option value="25-35">25-35</option>
+            <option value="30-40">30-40</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="gender-select">Gender:</label>
+          <select
+            id="gender-select"
+            [(ngModel)]="selectedGender"
+            (change)="onFilterChange()"
+            class="select-control"
+          >
+            <option value="">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Any">Any</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sort-select">Sort by:</label>
+          <select
+            id="sort-select"
+            [(ngModel)]="sortBy"
+            (change)="onSortChange()"
+            class="select-control"
+          >
+            <option value="name">Name (A-Z)</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="gifts-grid">
+      <app-gift-card
+        *ngFor="let gift of displayedGifts"
+        [gift]="gift"
+        (addToCart)="addToCart($event)"
+        (buyNow)="buyNow($event)"
+      ></app-gift-card>
+    </div>
+
+    <div *ngIf="displayedGifts.length === 0" class="empty-state">
+      <p>No gifts found for this selection.</p>
+    </div>
+  </div>
+</div>
