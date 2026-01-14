@@ -5,6 +5,49 @@
   min-height: 100vh;
   padding: 0;
   box-sizing: border-box;
+  background: linear-gradient(135deg, #f5f5f5 25%, #e8f5e9 25%, #e8f5e9 50%, #f5f5f5 50%, #f5f5f5 75%, #e8f5e9 75%, #e8f5e9);
+  background-size: 100px 100px;
+  background-position: 0 0;
+  background-attachment: fixed;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.teddy-bear-section {
+  flex-shrink: 0;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 0;
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.teddy-bear {
+  width: 180px;
+  height: 220px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .home-container {
@@ -17,6 +60,7 @@
   padding: 0 1rem;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
+  margin-bottom: 2rem;
 }
 
 @keyframes fadeIn {
@@ -139,6 +183,11 @@
 }
 
 @media (max-width: 720px) {
+  .teddy-bear {
+    width: 140px;
+    height: 170px;
+  }
+
   .home-title {
     font-size: 2rem;
   }

@@ -1,14 +1,18 @@
 .category-page {
   min-height: 100vh;
-  padding: 40px 20px;
+  width: 100%;
+  padding: 30px 15px 50px 15px;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-attachment: fixed;
+  margin: 0;
 
   .page-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    padding: 0 10px;
 
     .page-title {
-      font-size: 44px;
+      font-size: clamp(28px, 8vw, 44px);
       font-weight: 700;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
@@ -18,49 +22,50 @@
     }
 
     .page-description {
-      font-size: 16px;
+      font-size: clamp(13px, 4vw, 16px);
       color: #666;
       margin: 0;
     }
   }
 
   .selection-section {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
     .section-title {
-      font-size: 28px;
+      font-size: clamp(22px, 6vw, 28px);
       font-weight: 600;
       text-align: center;
       color: #333;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .roles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 900px;
       margin: 0 auto;
+      padding: 0 10px;
 
       .role-button {
-        padding: 25px 20px;
+        padding: clamp(16px, 4vw, 25px) clamp(12px, 3vw, 20px);
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         border: none;
-        border-radius: 12px;
-        font-size: 18px;
+        border-radius: 10px;
+        font-size: clamp(14px, 3vw, 18px);
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 
         &:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(102, 126, 234, 0.4);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
         }
 
         &:active {
-          transform: translateY(-2px);
+          transform: translateY(-1px);
         }
       }
     }
@@ -71,9 +76,10 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 8px;
       font-weight: 600;
+      font-size: clamp(12px, 2.5vw, 14px);
       cursor: pointer;
       margin-bottom: 20px;
       transition: all 0.3s ease;
@@ -86,46 +92,51 @@
     }
 
     .section-title {
-      font-size: 28px;
+      font-size: clamp(22px, 6vw, 28px);
       font-weight: 600;
       text-align: center;
       color: #333;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
   }
 
   .controls-section {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 
     .filter-sort-container {
       display: flex;
-      gap: 20px;
+      gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
       background: white;
-      padding: 20px;
+      padding: 15px 12px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
       .control-group {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
+        flex: 1;
+        min-width: 200px;
 
         label {
           font-weight: 600;
           color: #333;
           white-space: nowrap;
+          font-size: 13px;
         }
 
         .select-control {
-          padding: 10px 15px;
+          padding: 8px 12px;
           border: 2px solid #e0e0e0;
-          border-radius: 8px;
-          font-size: 14px;
+          border-radius: 6px;
+          font-size: 13px;
           cursor: pointer;
           transition: all 0.3s ease;
           background: white;
+          flex: 1;
+          min-width: 120px;
 
           &:hover {
             border-color: #667eea;
@@ -143,63 +154,156 @@
 
   .gifts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    width: 100%;
     margin: 0 auto;
+    max-width: 1400px;
   }
 
   .empty-state {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
     color: #666;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .category-page {
-    padding: 20px 15px;
+    padding: 20px 10px 50px 10px;
 
     .page-header {
-      margin-bottom: 25px;
-
-      .page-title {
-        font-size: 32px;
-      }
-
-      .page-description {
-        font-size: 14px;
-      }
+      margin-bottom: 20px;
+      padding: 0 5px;
     }
 
     .selection-section {
+      margin-bottom: 20px;
+
       .roles-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 12px;
+        padding: 0;
 
         .role-button {
-          padding: 20px;
-          font-size: 16px;
+          padding: 14px 12px;
+          font-size: 14px;
         }
       }
     }
 
     .controls-section {
+      margin-bottom: 20px;
+
       .filter-sort-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+        padding: 12px 10px;
 
         .control-group {
           width: 100%;
-          justify-content: space-between;
+          flex-direction: column;
+          gap: 6px;
+          align-items: flex-start;
+          min-width: initial;
+
+          label {
+            width: 100%;
+            font-size: 12px;
+          }
+
+          .select-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            min-width: initial;
+          }
         }
       }
     }
 
     .gifts-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .category-page {
+    padding: 25px 15px 50px 15px;
+
+    .page-header {
+      margin-bottom: 25px;
+    }
+
+    .selection-section {
+      .roles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+
+        .role-button {
+          padding: 14px 12px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .controls-section {
+      margin-bottom: 25px;
+
+      .filter-sort-container {
+        flex-direction: row;
+        gap: 12px;
+
+        .control-group {
+          flex: 1;
+          min-width: 150px;
+        }
+      }
+    }
+
+    .gifts-grid {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 18px;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .category-page {
+    padding: 40px 20px 50px 20px;
+
+    .page-header {
+      margin-bottom: 40px;
+    }
+
+    .selection-section {
+      .roles-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    .controls-section {
+      margin-bottom: 40px;
+
+      .filter-sort-container {
+        padding: 20px;
+        gap: 20px;
+
+        .control-group {
+          flex: initial;
+          min-width: initial;
+          gap: 10px;
+        }
+      }
+    }
+
+    .gifts-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
     }
   }
 }
