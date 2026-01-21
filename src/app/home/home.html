@@ -7,81 +7,16 @@
 
     <p class="second-p">Whom do you want to gift?</p>
 
-    <div class="cards-group">
+    <div class="categories-list">
       <button
         *ngFor="let category of categories; let i = index"
-        class="card"
+        class="category-btn"
         [class.selected]="selectedCategory === category"
-        [style.animation-delay]="i * 200 + 'ms'"
+        [style.animation-delay]="i * 150 + 'ms'"
         (click)="selectCategory(category)"
       >
         {{ category }}
       </button>
     </div>
-  </div>
-  
-  <div class="teddy-bear-section">
-    <svg class="teddy-bear" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
-      <!-- Body -->
-      <ellipse cx="100" cy="140" rx="45" ry="60" fill="#C4A57B"/>
-      <!-- Head -->
-      <circle cx="100" cy="70" r="40" fill="#C4A57B"/>
-      <!-- Left Ear -->
-      <circle cx="70" cy="35" r="18" fill="#C4A57B"/>
-      <!-- Right Ear -->
-      <circle cx="130" cy="35" r="18" fill="#C4A57B"/>
-      <!-- Face -->
-      <circle cx="90" cy="65" r="8" fill="#333"/>
-      <circle cx="110" cy="65" r="8" fill="#333"/>
-      <!-- Nose -->
-      <ellipse cx="100" cy="80" rx="6" ry="5" fill="#8B6F47"/>
-      <!-- Mouth -->
-      <path d="M 100 80 Q 95 88 90 85" stroke="#8B6F47" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <path d="M 100 80 Q 105 88 110 85" stroke="#8B6F47" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <!-- Arms -->
-      <ellipse cx="65" cy="120" rx="15" ry="40" fill="#C4A57B"/>
-      <ellipse cx="135" cy="120" rx="15" ry="40" fill="#C4A57B"/>
-      <!-- Legs -->
-      <ellipse cx="85" cy="195" rx="18" ry="30" fill="#C4A57B"/>
-      <ellipse cx="115" cy="195" rx="18" ry="30" fill="#C4A57B"/>
-      
-      <!-- Flower bouquet in arms -->
-      <g transform="translate(100, 100)">
-        <!-- Stems -->
-        <line x1="0" y1="0" x2="-5" y2="25" stroke="#2D5016" stroke-width="2"/>
-        <line x1="0" y1="0" x2="5" y2="25" stroke="#2D5016" stroke-width="2"/>
-        <line x1="0" y1="0" x2="-10" y2="30" stroke="#2D5016" stroke-width="2"/>
-        <line x1="0" y1="0" x2="10" y2="30" stroke="#2D5016" stroke-width="2"/>
-        <line x1="0" y1="0" x2="0" y2="32" stroke="#2D5016" stroke-width="2"/>
-        
-        <!-- Flowers -->
-        <!-- Flower 1 -->
-        <circle cx="-5" cy="-15" r="4" fill="#FFF"/>
-        <circle cx="-8" cy="-18" r="3" fill="#FFF"/>
-        <circle cx="-2" cy="-18" r="3" fill="#FFF"/>
-        <circle cx="-5" cy="-12" r="3" fill="#FFF"/>
-        <circle cx="-8" cy="-15" r="3" fill="#FFF"/>
-        <circle cx="-2" cy="-15" r="3" fill="#FFF"/>
-        <circle cx="-5" cy="-15" r="2.5" fill="#FFD700"/>
-        
-        <!-- Flower 2 -->
-        <circle cx="5" cy="-15" r="4" fill="#FFF"/>
-        <circle cx="2" cy="-18" r="3" fill="#FFF"/>
-        <circle cx="8" cy="-18" r="3" fill="#FFF"/>
-        <circle cx="5" cy="-12" r="3" fill="#FFF"/>
-        <circle cx="2" cy="-15" r="3" fill="#FFF"/>
-        <circle cx="8" cy="-15" r="3" fill="#FFF"/>
-        <circle cx="5" cy="-15" r="2.5" fill="#FFD700"/>
-        
-        <!-- Flower 3 (center) -->
-        <circle cx="0" cy="-20" r="4" fill="#FFF"/>
-        <circle cx="-3" cy="-23" r="3" fill="#FFF"/>
-        <circle cx="3" cy="-23" r="3" fill="#FFF"/>
-        <circle cx="0" cy="-17" r="3" fill="#FFF"/>
-        <circle cx="-3" cy="-20" r="3" fill="#FFF"/>
-        <circle cx="3" cy="-20" r="3" fill="#FFF"/>
-        <circle cx="0" cy="-20" r="2.5" fill="#FFD700"/>
-      </g>
-    </svg>
   </div>
 </div>

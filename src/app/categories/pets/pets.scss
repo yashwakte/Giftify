@@ -2,7 +2,19 @@
   width: 100%;
   min-height: 100vh;
   padding: 30px 15px 50px 15px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-color: #f9f6f0;
+  background-image: 
+    radial-gradient(circle at 12% 25%, rgba(219, 112, 147, 0.15) 0.5px, transparent 0.5px),
+    radial-gradient(circle at 78% 15%, rgba(219, 112, 147, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at 23% 68%, rgba(219, 112, 147, 0.1) 0.8px, transparent 0.8px),
+    radial-gradient(circle at 88% 45%, rgba(219, 112, 147, 0.14) 1.2px, transparent 1.2px),
+    radial-gradient(circle at 45% 80%, rgba(219, 112, 147, 0.11) 0.9px, transparent 0.9px),
+    radial-gradient(circle at 5% 50%, rgba(219, 112, 147, 0.13) 1px, transparent 1px),
+    radial-gradient(circle at 92% 75%, rgba(219, 112, 147, 0.09) 0.7px, transparent 0.7px),
+    radial-gradient(circle at 55% 15%, rgba(219, 112, 147, 0.12) 1.1px, transparent 1.1px),
+    radial-gradient(circle at 35% 35%, rgba(219, 112, 147, 0.1) 0.8px, transparent 0.8px),
+    radial-gradient(circle at 75% 65%, rgba(219, 112, 147, 0.14) 1.2px, transparent 1.2px);
+  background-size: 100% 100%;
   background-attachment: fixed;
   margin: 0;
 
@@ -80,11 +92,12 @@
 
   .gifts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     width: 100%;
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 1600px;
+    padding: 0 2rem;
   }
 
   .empty-state {
@@ -200,6 +213,25 @@
     .gifts-grid {
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
+    }
+  }
+}
+@media (max-width: 1400px) {
+  .category-page {
+    .gifts-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: 0 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .category-page {
+    .gifts-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 0 1rem;
     }
   }
 }

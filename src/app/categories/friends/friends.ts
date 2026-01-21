@@ -12,14 +12,14 @@ import { GiftService, Gift } from '../../services/gift.service';
   styleUrl: './friends.scss',
 })
 export class FriendsComponent implements OnInit {
-  // Sorted in ascending order
+  // Sorted in ascending order - Others always last
   availableCategories = [
     'Best Friend',
     'Casual Friend',
     'Childhood Friend',
     'Close Friend',
-    'Others',
     'Work Friend',
+    'Others',
   ];
 
   selectedSubcategory: string | null = null;

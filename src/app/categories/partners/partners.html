@@ -7,13 +7,16 @@
   <!-- Category Selection -->
   <div *ngIf="!selectedSubcategory" class="selection-section">
     <h2 class="section-title">Select a Relationship</h2>
-    <div class="categories-grid">
+    <div class="subcategories-list">
       <button
-        *ngFor="let category of availableCategories"
+        *ngFor="let category of availableCategories; let i = index"
         (click)="selectSubcategory(category)"
-        class="category-button"
+        class="subcategory-card"
       >
-        {{ category }}
+        <div class="card-content">
+          <span class="category-name">{{ category }}</span>
+          <div class="decoration" [attr.data-index]="i"></div>
+        </div>
       </button>
     </div>
   </div>

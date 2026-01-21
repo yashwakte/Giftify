@@ -7,9 +7,16 @@
   <!-- Role Selection -->
   <div *ngIf="!selectedRole" class="selection-section">
     <h2 class="section-title">Select a Role</h2>
-    <div class="roles-grid">
-      <button *ngFor="let role of availableRoles" (click)="selectRole(role)" class="role-button">
-        {{ role }}
+    <div class="subcategories-list">
+      <button
+        *ngFor="let role of availableRoles; let i = index"
+        (click)="selectRole(role)"
+        class="subcategory-card"
+      >
+        <div class="card-content">
+          <span class="category-name">{{ role }}</span>
+          <div class="decoration" [attr.data-index]="i"></div>
+        </div>
       </button>
     </div>
   </div>
