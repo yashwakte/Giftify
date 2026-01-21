@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -14,8 +14,6 @@ export class Home implements OnInit {
   showHello = false;
   selectedCategory: string | null = null;
 
-  @ViewChild('teddyBear') teddyBear!: ElementRef<SVGElement>;
-
   categories = ['Clients', 'Colleagues', 'Family', 'Friends', 'Kids', 'Partners', 'Pets'];
 
   constructor(private router: Router) {}
@@ -30,26 +28,6 @@ export class Home implements OnInit {
     setTimeout(() => {
       this.showHello = false;
     }, 3000);
-  }
-
-  waveHand() {
-    if (!this.teddyBear) return;
-
-    // Get the right arm element
-    const rightArm = this.teddyBear.nativeElement.querySelector('#rightArm') as HTMLElement;
-    if (rightArm) {
-      // Apply wave animation
-      rightArm.style.animation = 'none';
-      // Trigger reflow to restart animation
-      void rightArm.offsetWidth;
-      rightArm.style.animation = 'waveArm 1s ease-in-out forwards';
-    }
-
-    // Show hello message when clicked
-    this.showHello = true;
-    setTimeout(() => {
-      this.showHello = false;
-    }, 2000);
   }
 
   selectCategory(category: string) {

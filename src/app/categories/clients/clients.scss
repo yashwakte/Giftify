@@ -3,7 +3,7 @@
   width: 100%;
   padding: 30px 15px 50px 15px;
   background-color: #f9f6f0;
-  background-image: 
+  background-image:
     radial-gradient(circle at 12% 25%, rgba(219, 112, 147, 0.15) 0.5px, transparent 0.5px),
     radial-gradient(circle at 78% 15%, rgba(219, 112, 147, 0.12) 1px, transparent 1px),
     radial-gradient(circle at 23% 68%, rgba(219, 112, 147, 0.1) 0.8px, transparent 0.8px),
@@ -24,7 +24,7 @@
     padding: 0 10px;
 
     .page-title {
-      font-size: clamp(28px, 8vw, 44px);
+      font-size: clamp(20px, 5vw, 30px);
       font-weight: 700;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
@@ -41,17 +41,16 @@
   }
 
   .controls-section {
-    margin-bottom: 25px;
 
     .filter-sort-container {
       display: flex;
       gap: 12px;
-      justify-content: center;
+      justify-content: left;
       flex-wrap: wrap;
-      background: white;
-      padding: 15px 12px;
+      // background: white;
+      // padding: 15px 12px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
       .control-group {
         display: flex;

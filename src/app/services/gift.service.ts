@@ -31,7 +31,7 @@ export class GiftService {
         name: 'Executive Pen Set',
         description: 'Premium leather pen set perfect for corporate gifts',
         price: 45.99,
-        image: 'https://via.placeholder.com/300x200?text=Pen+Set',
+        image: '/assets/client/LeatherPen.webp',
         category: 'Clients',
       },
       {
@@ -39,7 +39,7 @@ export class GiftService {
         name: 'Corporate Gift Box',
         description: 'Elegant gift hamper with premium items',
         price: 89.99,
-        image: 'https://via.placeholder.com/300x200?text=Gift+Box',
+        image: '/assets/client/CorporateBox.webp',
         category: 'Clients',
       },
       {
@@ -47,7 +47,7 @@ export class GiftService {
         name: 'Personalized Mug',
         description: 'Custom ceramic mug with company branding',
         price: 15.99,
-        image: 'https://via.placeholder.com/300x200?text=Mug',
+        image: '/assets/client/PersonalizedMug.webp',
         category: 'Clients',
       },
 
@@ -453,7 +453,7 @@ export class GiftService {
     subcategory?: string,
     role?: string,
     ageGroup?: string,
-    gender?: string
+    gender?: string,
   ): Observable<Gift[]> {
     return new Observable((observer) => {
       this.gifts$.subscribe((gifts) => {
