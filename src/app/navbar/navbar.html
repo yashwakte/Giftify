@@ -31,7 +31,13 @@
       </button>
     </div>
     <div class="nav-icons">
-      <button class="cart-icon" aria-label="Cart" type="button" (click)="goToCart()" [class.highlighted]="cartHighlight">
+      <button
+        class="cart-icon"
+        aria-label="Cart"
+        type="button"
+        (click)="goToCart()"
+        [class.highlighted]="cartHighlight"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -49,7 +55,13 @@
         </svg>
         <span class="icon-count">{{ cartCount !== undefined ? cartCount : 0 }}</span>
       </button>
-      <button class="checkout-icon" aria-label="Checkout" type="button" (click)="goToCheckout()" [class.highlighted]="checkoutHighlight">
+      <button
+        class="checkout-icon"
+        aria-label="Checkout"
+        type="button"
+        (click)="goToCheckout()"
+        [class.highlighted]="checkoutHighlight"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
