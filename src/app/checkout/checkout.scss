@@ -1,0 +1,115 @@
+.checkout-page {
+  background: linear-gradient(
+    90deg,
+    rgba(224, 213, 213, 0.9),
+    rgba(107, 85, 85, 0.6),
+    rgba(195, 75, 75, 0.2)
+  );
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.checkout-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+}
+
+.checkout-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.checkout-details {
+  flex: 1;
+}
+
+.checkout-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.checkout-desc {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.checkout-price {
+  color: #c34b4b;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.checkout-count {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.coupon-section {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coupon-section input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.coupon-section button {
+  background: #c34b4b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.applied-coupon {
+  color: #388e3c;
+  font-weight: bold;
+}
+
+.checkout-summary {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.total {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #c34b4b;
+}
+
+.proceed-btn {
+  margin-top: 2rem;
+  background: #388e3c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}

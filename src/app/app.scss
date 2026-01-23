@@ -1,3 +1,50 @@
 /* App-level styles (non-navbar). Keep main spacing class for navbar to avoid overlap. */
 /* If you want the app content to be pushed down when navbar expands, add the class `app-main-padding` to the main element. */
 /* main.main { padding-top: 18px; } */
+
+body, html, app-root {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+  .category-page, .gifts-section, .selection-section, .subcategories-list {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding: 0 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+  .subcategory-card, .gift-card, .checkout-item, .cart-item {
+    min-width: 90vw !important;
+    max-width: 98vw !important;
+    font-size: 1rem !important;
+    padding: 1rem 0.2rem !important;
+    margin: 0.5rem auto !important;
+    box-sizing: border-box !important;
+  }
+  .gifts-grid, .cart-list, .checkout-list {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  .page-header, .section-title, h1, h2, h3 {
+    text-align: center !important;
+    font-size: 1.2rem !important;
+    padding: 0.5rem 0 !important;
+  }
+}
+@media (max-width: 600px) {
+  .subcategory-card, .gift-card, .checkout-item, .cart-item {
+    min-width: 98vw !important;
+    max-width: 99vw !important;
+    font-size: 0.95rem !important;
+    padding: 0.7rem 0.1rem !important;
+  }
+  .gifts-grid, .cart-list, .checkout-list {
+    gap: 0.5rem !important;
+  }
+}

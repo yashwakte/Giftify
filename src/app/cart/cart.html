@@ -1,0 +1,24 @@
+<div class="cart-page">
+  <h2>Your Cart</h2>
+  <div *ngIf="(cartItems$ | async)?.length; else emptyCart">
+    <div class="cart-list">
+      <div class="cart-item" *ngFor="let item of cartItems$ | async">
+        <img [src]="item.gift.image" alt="{{ item.gift.name }}" class="cart-img" />
+        <div class="cart-details">
+          <div class="cart-name">{{ item.gift.name }}</div>
+          <div class="cart-desc">{{ item.gift.description }}</div>
+          <div class="cart-price">${{ item.gift.price }}</div>
+        </div>
+        <div class="cart-controls">
+          <button (click)="decreaseCount(item.gift.id, item.count)">-</button>
+          <span class="cart-count">{{ item.count }}</span>
+          <button (click)="increaseCount(item.gift.id, item.count)">+</button>
+        </div>
+        <button class="remove-btn" (click)="removeItem(item.gift.id)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <div class="empty-message">Your cart is empty.</div>
+  </ng-template>
+</div>

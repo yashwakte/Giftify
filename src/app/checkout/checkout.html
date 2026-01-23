@@ -1,0 +1,32 @@
+<div class="checkout-page">
+  <h2>Checkout</h2>
+  <div *ngIf="(checkoutItems$ | async)?.length; else emptyCheckout">
+    <div class="checkout-list">
+      <div class="checkout-item" *ngFor="let item of checkoutItems$ | async">
+        <img [src]="item.gift.image" alt="{{ item.gift.name }}" class="checkout-img" />
+        <div class="checkout-details">
+          <div class="checkout-name">{{ item.gift.name }}</div>
+          <div class="checkout-desc">{{ item.gift.description }}</div>
+          <div class="checkout-price">${{ item.gift.price }}</div>
+          <div class="checkout-count">x{{ item.count }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="coupon-section">
+      <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code" />
+      <button (click)="applyCoupon()">Apply Coupon</button>
+      <span *ngIf="appliedCoupon" class="applied-coupon"
+        >Coupon '{{ appliedCoupon }}' applied!</span
+      >
+    </div>
+    <div class="checkout-summary">
+      <div>Subtotal: ${{ getSubtotal() }}</div>
+      <div *ngIf="discount > 0">Discount: -${{ discount }}</div>
+      <div class="total">Total: ${{ getTotal(checkoutItems$ | async) }}</div>
+    </div>
+    <button class="proceed-btn" (click)="proceedToCheckout()">Proceed to Checkout</button>
+  </div>
+  <ng-template #emptyCheckout>
+    <div class="empty-message">Your checkout is empty.</div>
+  </ng-template>
+</div>

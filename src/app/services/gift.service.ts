@@ -21,6 +21,12 @@ export class GiftService {
   private giftsSubject = new BehaviorSubject<Gift[]>(this.getInitialGifts());
   gifts$: Observable<Gift[]> = this.giftsSubject.asObservable();
 
+  private cartSubject = new BehaviorSubject<{ gift: Gift; count: number }[]>([]);
+  cart$: Observable<{ gift: Gift; count: number }[]> = this.cartSubject.asObservable();
+
+  private checkoutSubject = new BehaviorSubject<{ gift: Gift; count: number }[]>([]);
+  checkout$: Observable<{ gift: Gift; count: number }[]> = this.checkoutSubject.asObservable();
+
   constructor() {}
 
   private getInitialGifts(): Gift[] {
@@ -437,6 +443,68 @@ export class GiftService {
   addGift(gift: Gift): void {
     const currentGifts = this.giftsSubject.value;
     this.giftsSubject.next([...currentGifts, gift]);
+  }
+
+  addToCart(gift: Gift): void {
+    const cart = this.cartSubject.value;
+    const idx = cart.findIndex((item) => item.gift.id === gift.id);
+    if (idx > -1) {
+      cart[idx].count += 1;
+    } else {
+      cart.push({ gift, count: 1 });
+    }
+    this.cartSubject.next([...cart]);
+  }
+
+  removeFromCart(giftId: string): void {
+    const cart = this.cartSubject.value.filter((item) => item.gift.id !== giftId);
+    this.cartSubject.next([...cart]);
+  }
+
+  updateCartCount(giftId: string, count: number): void {
+    const cart = this.cartSubject.value.map((item) =>
+      item.gift.id === giftId ? { ...item, count: Math.max(1, count) } : item,
+    );
+    this.cartSubject.next([...cart]);
+  }
+
+  clearCart(): void {
+    this.cartSubject.next([]);
+  }
+
+  getCartCount(): number {
+    return this.cartSubject.value.reduce((sum, item) => sum + item.count, 0);
+  }
+
+  addToCheckout(gift: Gift): void {
+    const checkout = this.checkoutSubject.value;
+    const idx = checkout.findIndex((item) => item.gift.id === gift.id);
+    if (idx > -1) {
+      checkout[idx].count += 1;
+    } else {
+      checkout.push({ gift, count: 1 });
+    }
+    this.checkoutSubject.next([...checkout]);
+  }
+
+  removeFromCheckout(giftId: string): void {
+    const checkout = this.checkoutSubject.value.filter((item) => item.gift.id !== giftId);
+    this.checkoutSubject.next([...checkout]);
+  }
+
+  updateCheckoutCount(giftId: string, count: number): void {
+    const checkout = this.checkoutSubject.value.map((item) =>
+      item.gift.id === giftId ? { ...item, count: Math.max(1, count) } : item,
+    );
+    this.checkoutSubject.next([...checkout]);
+  }
+
+  clearCheckout(): void {
+    this.checkoutSubject.next([]);
+  }
+
+  getCheckoutCount(): number {
+    return this.checkoutSubject.value.reduce((sum, item) => sum + item.count, 0);
   }
 
   getGiftsByCategory(category: string): Observable<Gift[]> {

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GiftCardComponent } from '../../components/gift-card/gift-card';
 import { GiftService, Gift } from '../../services/gift.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-friends',
@@ -21,14 +22,14 @@ export class FriendsComponent implements OnInit {
     'Work Friend',
     'Others',
   ];
-
   selectedSubcategory: string | null = null;
   gifts: Gift[] = [];
   displayedGifts: Gift[] = [];
-
   sortBy: 'name' | 'price-asc' | 'price-desc' = 'name';
-
-  constructor(private giftService: GiftService) {}
+  constructor(
+    private giftService: GiftService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.giftService.getGiftsByCategory('Friends').subscribe((gifts) => {
@@ -63,11 +64,13 @@ export class FriendsComponent implements OnInit {
 
   addToCart(gift: Gift): void {
     console.log('Added to cart:', gift);
+    this.giftService.addToCart(gift);
     alert(`${gift.name} added to cart!`);
   }
 
   buyNow(gift: Gift): void {
     console.log('Buy now:', gift);
-    alert(`Proceeding to checkout for ${gift.name}!`);
+    this.giftService.addToCheckout(gift);
+    this.router.navigate(['/checkout']);
   }
 }

@@ -17,5 +17,6 @@ export const routes: Routes = [
   { path: 'categories/kids', component: KidsComponent },
   { path: 'categories/partners', component: PartnersComponent },
   { path: 'categories/pets', component: PetsComponent },
-  { path: '**', redirectTo: '' }, // Wildcard route for 404
+  { path: 'cart', loadComponent: () => import('./cart/cart').then((m) => m.Cart) },
+  { path: 'checkout', loadComponent: () => import('./checkout/checkout').then((m) => m.Checkout) }
 ];
