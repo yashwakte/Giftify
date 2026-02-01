@@ -3,13 +3,18 @@
   <div *ngIf="(checkoutItems$ | async)?.length; else emptyCheckout">
     <div class="checkout-list">
       <div class="checkout-item" *ngFor="let item of checkoutItems$ | async">
-        <img [src]="item.gift.image" alt="{{ item.gift.name }}" class="checkout-img" />
+        <img
+          [src]="item.gift.image || 'https://via.placeholder.com/80x80?text=Gift'"
+          alt="{{ item.gift.name }}"
+          class="checkout-img"
+        />
         <div class="checkout-details">
           <div class="checkout-name">{{ item.gift.name }}</div>
           <div class="checkout-desc">{{ item.gift.description }}</div>
           <div class="checkout-price">${{ item.gift.price }}</div>
           <div class="checkout-count">x{{ item.count }}</div>
         </div>
+        <button class="buy-now-btn" (click)="proceedToCheckout()">Buy Now</button>
       </div>
     </div>
     <div class="coupon-section">

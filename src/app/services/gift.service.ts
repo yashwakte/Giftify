@@ -19,6 +19,34 @@ export interface Gift {
 })
 export class GiftService {
   private gifts: Gift[] = [
+    //Clients
+    {
+      id: 'client-1',
+      name: 'Executive Pen Set',
+      description: 'Premium leather pen set perfect for corporate gifts',
+      price: 45.99,
+      image: 'https://via.placeholder.com/300x200?text=Pen+Set',
+      category: 'Clients',
+      subcategory: 'Corporate',
+    },
+    {
+      id: 'client-2',
+      name: 'Corporate Gift Box',
+      description: 'Elegant gift hamper with premium items',
+      price: 89.99,
+      image: 'https://via.placeholder.com/300x200?text=Gift+Box',
+      category: 'Clients',
+      subcategory: 'Premium',
+    },
+    {
+      id: 'client-3',
+      name: 'Personalized Mug',
+      description: 'Custom ceramic mug with company branding',
+      price: 15.99,
+      image: 'https://via.placeholder.com/300x200?text=Mug',
+      category: 'Clients',
+      subcategory: 'Standard',
+    },
     // Family
     {
       id: 'family-13',
@@ -331,6 +359,11 @@ export class GiftService {
   }
 
   getGiftsByCategory(category: string): Observable<Gift[]> {
-    return new Observable((observer) => {});
+    return new Observable((observer) => {
+      this.gifts$.subscribe((gifts) => {
+        const filtered = gifts.filter((g) => g.category === category);
+        observer.next(filtered);
+      });
+    });
   }
 }

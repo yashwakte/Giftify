@@ -4,46 +4,31 @@
       Welcome to <span class="brand-highlight">Giftory</span>
       <p class="first-p">Your one-stop solution for all your gifting needs.</p>
     </h1>
+    <p class="second-p">Whom do you want to gift!</p>
 
-    <!-- <p class="second-p">Whom do you want to gift?</p>
-
-    <div class="categories-list">
-      <button
-        *ngFor="let category of categories; let i = index"
-        class="category-btn"
-        [class.selected]="selectedCategory === category"
-        [style.animation-delay]="i * 150 + 'ms'"
-        (click)="selectCategory(category)"
-      >
-        {{ category }}
-      </button>
-    </div> -->
-    <div class="section-block">
-      <div class="section-title-outside">Gifts by occasions</div>
-      <div class="home-section-row"></div>
-    </div>
-    <div class="row-gap"></div>
-    <div class="section-block">
-      <div class="section-title-outside">Gifts by relationship</div>
-      <div class="home-section-row relationship-row">
-        <div class="relationship-circles" #relationshipCircles>
-          <div
-            *ngFor="let category of categories; let i = index"
-            class="relationship-circle"
-            [class.selected]="selectedCategory === category"
-            (click)="selectCategory(category)"
-            [style.animation-delay]="i * 120 + 'ms'"
-          >
-            <span class="circle-icon">{{ getCategoryIcon(category) }}</span>
-            <span class="circle-label">{{ category }}</span>
-          </div>
+    <div class="categories-animated-wrapper">
+      <div class="categories-animated-list-matrix">
+        <div class="categories-animated-row">
+          <ng-container *ngFor="let category of categories.slice(0, 4); let i = index">
+            <div class="category-animated-card" (click)="selectCategory(category)">
+              <div class="category-animated-shape">
+                <span class="category-animated-icon">{{ getCategoryIcon(category) }}</span>
+              </div>
+              <span class="category-animated-name no-bg">{{ category }}</span>
+            </div>
+          </ng-container>
+        </div>
+        <div class="categories-animated-row">
+          <ng-container *ngFor="let category of categories.slice(4); let i = index">
+            <div class="category-animated-card" (click)="selectCategory(category)">
+              <div class="category-animated-shape">
+                <span class="category-animated-icon">{{ getCategoryIcon(category) }}</span>
+              </div>
+              <span class="category-animated-name no-bg">{{ category }}</span>
+            </div>
+          </ng-container>
         </div>
       </div>
-    </div>
-    <div class="row-gap"></div>
-    <div class="section-block">
-      <div class="section-title-outside">Gifts by mood</div>
-      <div class="home-section-row"></div>
     </div>
     <footer class="home-footer">
       <span>© 2026 Giftory. All rights reserved.</span>

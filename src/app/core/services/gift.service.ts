@@ -27,6 +27,7 @@ export class GiftService {
         price: 45.99,
         image: '/assets/client/LeatherPen.webp',
         category: 'Clients',
+        subcategory: 'Corporate',
       },
       {
         id: 'client-2',
@@ -35,6 +36,7 @@ export class GiftService {
         price: 89.99,
         image: '/assets/client/CorporateBox.webp',
         category: 'Clients',
+        subcategory: 'Premium',
       },
       {
         id: 'client-3',
@@ -43,6 +45,7 @@ export class GiftService {
         price: 15.99,
         image: '/assets/client/PersonalizedMug.webp',
         category: 'Clients',
+        subcategory: 'Standard',
       },
       // ...rest of the gifts from the original service...
     ];

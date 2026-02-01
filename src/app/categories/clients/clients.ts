@@ -4,8 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GiftCardComponent } from '../../components/gift-card/gift-card';
 import { GiftService } from '../../services/gift.service';
+import { CartService } from '../../services/cart.service';
+import { CheckoutService } from '../../services/checkout.service';
 import { sortGifts } from '../../shared/utils/sort-gifts';
 import { Gift } from '../../core/models/gift.model';
+import { log } from 'console';
 
 @Component({
   selector: 'app-clients',
@@ -22,12 +25,15 @@ export class ClientsComponent implements OnInit {
 
   constructor(
     private giftService: GiftService,
+    private cartService: CartService,
+    private checkoutService: CheckoutService,
     private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.giftService.getGiftsByCategory('Clients').subscribe((gifts) => {
       this.gifts = gifts;
+
       this.applyFiltersAndSort();
     });
   }
@@ -44,21 +50,20 @@ export class ClientsComponent implements OnInit {
     let filtered = [...this.gifts];
 
     if (this.selectedCategory) {
-      // You can add category filtering here based on gift properties
-      // For now, we'll keep it flexible
+      filtered = filtered.filter((gift) => gift.subcategory === this.selectedCategory);
     }
 
     this.displayedGifts = sortGifts(filtered, this.sortBy);
   }
 
   addToCart(gift: Gift): void {
-    this.giftService.addToCart(gift);
+    this.cartService.addToCart(gift);
     // Optionally show a toast/snackbar instead of alert
     alert(`${gift.name} added to cart!`);
   }
 
   buyNow(gift: Gift): void {
-    this.giftService.addToCheckout(gift);
+    this.checkoutService.addToCheckout(gift);
     this.router.navigate(['/checkout']);
   }
 }

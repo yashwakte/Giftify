@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { GiftService } from '../core/services/gift.service';
+import { CheckoutService } from '../services/checkout.service';
 
 @Component({
   selector: 'app-checkout',
@@ -16,8 +16,8 @@ export class Checkout {
   discount = 0;
   appliedCoupon = '';
 
-  constructor(private giftService: GiftService) {
-    this.checkoutItems$ = this.giftService.checkout$;
+  constructor(private checkoutService: CheckoutService) {
+    this.checkoutItems$ = this.checkoutService.checkout$;
   }
 
   getTotal(items: { gift: any; count: number }[] | null): number {

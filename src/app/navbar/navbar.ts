@@ -2,12 +2,12 @@ import { Component, AfterViewInit, HostBinding } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { CheckoutService } from '../services/checkout.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   host: { class: 'navbar' },
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.scss'],
@@ -19,6 +19,7 @@ export class Navbar implements AfterViewInit {
   checkoutCount = 0;
   cartHighlight = false;
   checkoutHighlight = false;
+  profileDropdownOpen = false;
 
   constructor(
     private cartService: CartService,
@@ -29,7 +30,7 @@ export class Navbar implements AfterViewInit {
       const newCount = cart.reduce((sum, item) => sum + item.count, 0);
       if (newCount > this.cartCount) {
         this.cartHighlight = true;
-        setTimeout(() => (this.cartHighlight = false), 600);
+        setTimeout(() => (this.cartHighlight = false), 2000);
       }
       this.cartCount = newCount;
     });
@@ -37,7 +38,7 @@ export class Navbar implements AfterViewInit {
       const newCount = checkout.reduce((sum, item) => sum + item.count, 0);
       if (newCount > this.checkoutCount) {
         this.checkoutHighlight = true;
-        setTimeout(() => (this.checkoutHighlight = false), 600);
+        setTimeout(() => (this.checkoutHighlight = false), 2000);
       }
       this.checkoutCount = newCount;
     });
@@ -60,8 +61,29 @@ export class Navbar implements AfterViewInit {
     this.router.navigate(['/checkout']);
   }
 
+  toggleProfileDropdown(): void {
+    this.profileDropdownOpen = !this.profileDropdownOpen;
+  }
+
+  closeProfileDropdown(): void {
+    this.profileDropdownOpen = false;
+  }
+
   goToProfile(): void {
-    // TODO: Implement profile navigation
     this.router.navigate(['/profile']);
+  }
+
+  goToSettings(): void {
+    this.router.navigate(['/settings']);
+  }
+
+  goToHelp(): void {
+    this.router.navigate(['/help']);
+  }
+
+  logout(): void {
+    // Dummy logout logic
+    alert('Logged out!');
+    this.router.navigate(['/']);
   }
 }

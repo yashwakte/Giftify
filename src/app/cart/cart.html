@@ -3,7 +3,11 @@
   <div *ngIf="(cartItems$ | async)?.length; else emptyCart">
     <div class="cart-list">
       <div class="cart-item" *ngFor="let item of cartItems$ | async">
-        <img [src]="item.gift.image" alt="{{ item.gift.name }}" class="cart-img" />
+        <img
+          [src]="item.gift.image || 'https://via.placeholder.com/80x80?text=Gift'"
+          alt="{{ item.gift.name }}"
+          class="cart-img"
+        />
         <div class="cart-details">
           <div class="cart-name">{{ item.gift.name }}</div>
           <div class="cart-desc">{{ item.gift.description }}</div>
@@ -15,6 +19,7 @@
           <button (click)="increaseCount(item.gift.id, item.count)">+</button>
         </div>
         <button class="remove-btn" (click)="removeItem(item.gift.id)">Remove</button>
+        <button class="buy-now-btn" (click)="buyNow(item.gift)">Buy Now</button>
       </div>
     </div>
   </div>

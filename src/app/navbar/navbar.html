@@ -5,7 +5,7 @@
     </div>
   </div>
   <nav class="nav-center nav-links" aria-label="Primary">
-    <a href="#" class="nav-item">Home</a>
+    <a routerLink="/" class="nav-item" style="cursor: pointer">Home</a>
     <a href="#" class="nav-item">Gifting</a>
     <a href="#" class="nav-item">Cards</a>
     <a href="#" class="nav-item">About Us</a>
@@ -78,22 +78,35 @@
         </svg>
         <span class="icon-count">{{ checkoutCount !== undefined ? checkoutCount : 0 }}</span>
       </button>
-      <button class="profile-icon" aria-label="Profile" type="button" (click)="goToProfile()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+      <div class="profile-dropdown-wrapper">
+        <button
+          class="profile-icon"
+          aria-label="Profile"
+          type="button"
+          (click)="toggleProfileDropdown()"
         >
-          <circle cx="12" cy="8" r="4"></circle>
-          <path d="M2 20c0-4 8-6 10-6s10 2 10 6"></path>
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M2 20c0-4 8-6 10-6s10 2 10 6"></path>
+          </svg>
+        </button>
+        <div class="profile-dropdown" *ngIf="profileDropdownOpen">
+          <a class="dropdown-item" (click)="goToProfile(); closeProfileDropdown()">Profile</a>
+          <a class="dropdown-item" (click)="goToSettings(); closeProfileDropdown()">Settings</a>
+          <a class="dropdown-item" (click)="goToHelp(); closeProfileDropdown()">Help & Support</a>
+          <a class="dropdown-item" (click)="logout(); closeProfileDropdown()">Log out</a>
+        </div>
+      </div>
     </div>
     <button class="hamburger" (click)="toggleMobileMenu()" aria-label="Toggle menu">
       <svg

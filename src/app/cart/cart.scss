@@ -1,12 +1,26 @@
 .cart-page {
-  background: linear-gradient(
-    90deg,
-    rgba(224, 213, 213, 0.9),
-    rgba(107, 85, 85, 0.6),
-    rgba(195, 75, 75, 0.2)
-  );
+  background: #e4ecf1;
   min-height: 100vh;
   padding: 2rem;
+}
+.buy-now-btn {
+  background: linear-gradient(90deg, #538ce7 0%, #81aae7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  margin-left: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(81, 170, 231, 0.13);
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+}
+.buy-now-btn:hover {
+  background: linear-gradient(90deg, #357abd 0%, #538ce7 100%);
+  box-shadow: 0 4px 16px #538ce7aa;
 }
 
 .cart-list {

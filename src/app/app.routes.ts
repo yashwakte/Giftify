@@ -18,5 +18,14 @@ export const routes: Routes = [
   { path: 'categories/partners', component: PartnersComponent },
   { path: 'categories/pets', component: PetsComponent },
   { path: 'cart', loadComponent: () => import('./cart/cart').then((m) => m.Cart) },
-  { path: 'checkout', loadComponent: () => import('./checkout/checkout').then((m) => m.Checkout) }
+  { path: 'checkout', loadComponent: () => import('./checkout/checkout').then((m) => m.Checkout) },
+  {
+    path: 'profile',
+    loadComponent: () => import('./profile/profile').then((m) => m.ProfileComponent),
+  },
+  {
+    path: 'settings',
+    loadComponent: () => import('./settings/settings').then((m) => m.SettingsComponent),
+  },
+  { path: 'help', loadComponent: () => import('./help/help').then((m) => m.HelpComponent) },
 ];
