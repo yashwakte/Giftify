@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, HostBinding } from '@angular/core';
-import { GiftService } from '../services/gift.service';
+import { CartService } from '../services/cart.service';
+import { CheckoutService } from '../services/checkout.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -20,10 +21,11 @@ export class Navbar implements AfterViewInit {
   checkoutHighlight = false;
 
   constructor(
-    private giftService: GiftService,
+    private cartService: CartService,
+    private checkoutService: CheckoutService,
     private router: Router,
   ) {
-    this.giftService.cart$.subscribe((cart) => {
+    this.cartService.cart$.subscribe((cart) => {
       const newCount = cart.reduce((sum, item) => sum + item.count, 0);
       if (newCount > this.cartCount) {
         this.cartHighlight = true;
@@ -31,7 +33,7 @@ export class Navbar implements AfterViewInit {
       }
       this.cartCount = newCount;
     });
-    this.giftService.checkout$.subscribe((checkout) => {
+    this.checkoutService.checkout$.subscribe((checkout) => {
       const newCount = checkout.reduce((sum, item) => sum + item.count, 0);
       if (newCount > this.checkoutCount) {
         this.checkoutHighlight = true;
@@ -57,7 +59,7 @@ export class Navbar implements AfterViewInit {
   goToCheckout(): void {
     this.router.navigate(['/checkout']);
   }
-  
+
   goToProfile(): void {
     // TODO: Implement profile navigation
     this.router.navigate(['/profile']);

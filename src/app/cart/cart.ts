@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GiftService } from '../services/gift.service';
+import { GiftService } from '../core/services/gift.service';
 
 @Component({
   selector: 'app-cart',

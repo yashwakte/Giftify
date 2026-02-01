@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GiftCardComponent } from '../../components/gift-card/gift-card';
-import { GiftService, Gift } from '../../services/gift.service';
+import { GiftService } from '../../services/gift.service';
+import { sortGifts } from '../../shared/utils/sort-gifts';
+import { Gift } from '../../core/models/gift.model';
 
 @Component({
   selector: 'app-clients',
@@ -46,7 +48,7 @@ export class ClientsComponent implements OnInit {
       // For now, we'll keep it flexible
     }
 
-    this.displayedGifts = this.giftService.sortGifts(filtered, this.sortBy);
+    this.displayedGifts = sortGifts(filtered, this.sortBy);
   }
 
   addToCart(gift: Gift): void {

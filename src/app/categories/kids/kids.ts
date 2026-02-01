@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GiftCardComponent } from '../../components/gift-card/gift-card';
-import { GiftService, Gift } from '../../services/gift.service';
+import { GiftService } from '../../services/gift.service';
+import { sortGifts } from '../../shared/utils/sort-gifts';
+import { Gift } from '../../core/models/gift.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,7 +24,7 @@ export class KidsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.giftService.getGiftsByCategory('Kids').subscribe((gifts) => {
+    this.giftService.getGiftsByCategory('Kids').subscribe((gifts: Gift[]) => {
       this.gifts = gifts;
       this.applyFiltersAndSort();
     });
@@ -33,7 +35,7 @@ export class KidsComponent implements OnInit {
   }
 
   private applyFiltersAndSort(): void {
-    this.displayedGifts = this.giftService.sortGifts(this.gifts, this.sortBy);
+    this.displayedGifts = sortGifts(this.gifts, this.sortBy);
   }
 
   addToCart(gift: Gift): void {

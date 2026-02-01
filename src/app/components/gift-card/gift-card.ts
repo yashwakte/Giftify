@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Gift } from '../../services/gift.service';
+import { Gift } from '../../core/models/gift.model';
 
 @Component({
   selector: 'app-gift-card',

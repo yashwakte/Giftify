@@ -5,7 +5,7 @@
       <p class="first-p">Your one-stop solution for all your gifting needs.</p>
     </h1>
 
-    <p class="second-p">Whom do you want to gift?</p>
+    <!-- <p class="second-p">Whom do you want to gift?</p>
 
     <div class="categories-list">
       <button
@@ -17,6 +17,36 @@
       >
         {{ category }}
       </button>
+    </div> -->
+    <div class="section-block">
+      <div class="section-title-outside">Gifts by occasions</div>
+      <div class="home-section-row"></div>
     </div>
+    <div class="row-gap"></div>
+    <div class="section-block">
+      <div class="section-title-outside">Gifts by relationship</div>
+      <div class="home-section-row relationship-row">
+        <div class="relationship-circles" #relationshipCircles>
+          <div
+            *ngFor="let category of categories; let i = index"
+            class="relationship-circle"
+            [class.selected]="selectedCategory === category"
+            (click)="selectCategory(category)"
+            [style.animation-delay]="i * 120 + 'ms'"
+          >
+            <span class="circle-icon">{{ getCategoryIcon(category) }}</span>
+            <span class="circle-label">{{ category }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-gap"></div>
+    <div class="section-block">
+      <div class="section-title-outside">Gifts by mood</div>
+      <div class="home-section-row"></div>
+    </div>
+    <footer class="home-footer">
+      <span>© 2026 Giftory. All rights reserved.</span>
+    </footer>
   </div>
 </div>
